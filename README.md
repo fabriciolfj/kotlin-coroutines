@@ -16,7 +16,7 @@
 
 #### launch
 - inicia uma nova corountine que não retorna nenhum resultado
-- não bloqueia a thread em execução
+- não bloqueia a thread em execução (ela retorna um job, que podemos efetuar um join, onde aguarda a execução desta antes de continuar ou cancel)
 
 #### async
 - retorna uma valor
@@ -24,11 +24,12 @@
 
 ## Dispatcher
 - dentro da coroutine (coroutine context), podemos indicar um dispatcher, caso deseje utilizar outra thread ou um pool de threads a execução da coroutine
-- quando não definimos um dispatcher, um default e inserido (pool de threads de tamanho igual ao núcleo da maquina)
+- quando não definimos um dispatcher, um default é inserido (pool de threads de tamanho igual ao núcleo da maquina)
 - alguns dispatcher utilizados, serão citados abaixo.
 
 #### newSingleThreadContext
 - a coroutine sempre será executada em uma nova thread 
+
 #### Unconfined 
 - executa a coroutine na thread da função que a chamou, ate o ponto de suspense, 
 - após essa parte a execução volta a thread chamadora e 

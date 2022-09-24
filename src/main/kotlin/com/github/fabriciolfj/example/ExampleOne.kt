@@ -8,17 +8,18 @@ class ExampleOne {
 }
 
 fun main() = runBlocking {
-    println("My program runs...: ${Thread.currentThread().name}")
+    println("init program ${Thread.currentThread().name}")
 
-    launch {
-        longRunningTaks()
+    val job = launch {
+        loggingTest()
     }
 
-    println("My program run ends..: ${Thread.currentThread().name}")
+   // job.join()
+    println("end program ${Thread.currentThread().name}")
 }
 
-suspend fun longRunningTaks() {
-    println("executing longRunningTask on..: ${Thread.currentThread().name}")
+suspend fun loggingTest() {
+    println("init funcion logging ${Thread.currentThread().name}")
     delay(1000)
-    println("longRunningTask ends on thread..: ${Thread.currentThread().name}")
+    println("end function logging ${Thread.currentThread().name}")
 }
