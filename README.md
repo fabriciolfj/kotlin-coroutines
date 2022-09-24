@@ -8,7 +8,7 @@
 - uma função que não bloqueará a executação das demais na mesma thread.
 - precisa estar dentro de uma função launch
 
-## Scopes
+## Construtores
 #### runBlocking
 - inicia uma coroutine, bloqueando a thread em execução, até que todo o código da coroutine seja concluído
 - indicado para uso em classes principais ou testes junit
@@ -36,4 +36,7 @@
 - não é indicado para uso geral no código
 - apenas parte que precisa ser executada, mas em paralelo
 
-## Cancelando uma execução de uma coroutine (cont)
+## Cancelando uma execução de uma coroutine
+- caso uma coroutine esteja muito lenta ou executando um processo longo, podemos cancelar a mesma
+- podemos utilizar o join.cancelAndJoin(), onde aguadar o cancelamento da coroutine
+- ou podemos fazer uso do yield(), onde fará sair da coroutine
